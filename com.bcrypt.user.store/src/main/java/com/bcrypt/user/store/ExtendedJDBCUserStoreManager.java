@@ -90,7 +90,7 @@ public class ExtendedJDBCUserStoreManager extends JDBCUserStoreManager {
 
         String passwordString = getPasswordString(password);
         if (BCRYPT_HASH.equalsIgnoreCase(hashingAlgo)) {
-            return BCrypt.hashpw(passwordString, BCrypt.gensalt());
+            return BCrypt.hashpw(passwordString, saltValue);
         }
 
         if(hashingAlgo != null) {
